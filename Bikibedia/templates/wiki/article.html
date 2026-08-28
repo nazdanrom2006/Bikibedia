@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Example article{% endblock %}
+
+{% block content %}
+<h1>{{article.title}}</h1>
+<p>{{article.introduction}}</p>
+<h2>Overview</h2>
+<p>{{article.body_text}}</p>
+<h2>See also</h2>
+<ul>
+    <li><a href="{% url 'home' %}">Main page</a></li>
+    <li><a href="{% url 'articles' %}">Articles</a></li>
+</ul>
+{% endblock %}
