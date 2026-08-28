@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Log in{% endblock %}
+
+{% block content %}
+<h1>Log in</h1>
+<form onsubmit="return false;">
+    <p>Username<br><input type="text" name="username"></p>
+    <p>Password<br><input type="password" name="password"></p>
+    <p>
+        <input type="submit" value="Log in">
+        <a href="{% url 'register' %}">Register</a>
+    </p>
+</form>
+{% endblock %}
