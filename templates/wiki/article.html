@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Example article{% endblock %}
+
+{% block content %}
+<h1>Example article</h1>
+<p>An <b>example article</b> is a placeholder page.</p>
+<h2>Overview</h2>
+<p>Bikibedia is a small wiki. This page is only here so the site has something to show.</p>
+<h2>See also</h2>
+<ul>
+    <li><a href="{% url 'home' %}">Main page</a></li>
+    <li><a href="{% url 'articles' %}">Articles</a></li>
+</ul>
+{% endblock %}
