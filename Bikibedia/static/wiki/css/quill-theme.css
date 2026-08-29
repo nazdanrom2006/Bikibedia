@@ -1,0 +1,157 @@
+/* Quill editor theme — must load after quill.snow.css and wiki.css */
+
+#wysiwyg-editor.ql-snow,
+#wysiwyg-editor .ql-toolbar.ql-snow,
+#wysiwyg-editor .ql-container.ql-snow,
+#wysiwyg-editor .ql-editor {
+    background-color: var(--input-bg) !important;
+    color: var(--ink) !important;
+}
+
+#wysiwyg-editor .ql-toolbar.ql-snow {
+    border: none !important;
+    border-bottom: 1px solid var(--line) !important;
+}
+
+#wysiwyg-editor .ql-container.ql-snow {
+    border: none !important;
+}
+
+#wysiwyg-editor .ql-editor.ql-blank::before {
+    color: var(--text-faint) !important;
+}
+
+#wysiwyg-editor .ql-toolbar.ql-snow button {
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+/* --- Light theme --- */
+html[data-theme="light"] #wysiwyg-editor .ql-toolbar.ql-snow button svg,
+html[data-theme="light"] #wysiwyg-editor .ql-picker-label svg {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="light"] #wysiwyg-editor .ql-snow .ql-picker,
+html[data-theme="light"] #wysiwyg-editor .ql-snow .ql-picker-label {
+    color: #5c6570 !important;
+}
+
+html[data-theme="light"] #wysiwyg-editor .ql-snow .ql-picker-options,
+html[data-theme="light"] #wysiwyg-editor .ql-toolbar.ql-snow .ql-picker-options {
+    background-color: #ffffff !important;
+    border: 1px solid #c8d0da !important;
+    box-shadow: 0 6px 18px rgba(16, 24, 40, 0.14) !important;
+}
+
+html[data-theme="light"] #wysiwyg-editor .ql-snow .ql-picker-item,
+html[data-theme="light"] #wysiwyg-editor .ql-snow .ql-picker-options .ql-picker-item {
+    color: #1a1d21 !important;
+}
+
+html[data-theme="light"] #wysiwyg-editor .ql-snow .ql-picker-item::before {
+    color: inherit !important;
+}
+
+html[data-theme="light"] #wysiwyg-editor .ql-snow .ql-picker-item:hover,
+html[data-theme="light"] #wysiwyg-editor .ql-snow .ql-picker-item.ql-selected {
+    background-color: #e8f3fc !important;
+    color: #0b5cab !important;
+}
+
+html[data-theme="light"] #wysiwyg-editor .ql-toolbar.ql-snow button:hover,
+html[data-theme="light"] #wysiwyg-editor .ql-toolbar.ql-snow button.ql-active {
+    background-color: #e8f3fc !important;
+}
+
+html[data-theme="light"] #wysiwyg-editor .ql-snow .ql-picker.ql-expanded .ql-picker-label {
+    color: #5c6570 !important;
+    border-color: #c8d0da !important;
+}
+
+html[data-theme="light"] #wysiwyg-editor .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+    border-color: #c8d0da !important;
+}
+
+html[data-theme="light"] .article-form .ql-tooltip {
+    background-color: #ffffff !important;
+    border-color: #c8d0da !important;
+    color: #1a1d21 !important;
+}
+
+html[data-theme="light"] .article-form .ql-tooltip.ql-editing input[type="text"] {
+    background-color: #ffffff !important;
+    border-color: #c8d0da !important;
+    color: #1a1d21 !important;
+}
+
+/* --- Dark theme --- */
+html[data-theme="dark"] #wysiwyg-editor .ql-toolbar.ql-snow button svg,
+html[data-theme="dark"] #wysiwyg-editor .ql-picker-label svg {
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.92 !important;
+}
+
+html[data-theme="dark"] #wysiwyg-editor .ql-toolbar.ql-snow button:hover svg,
+html[data-theme="dark"] #wysiwyg-editor .ql-toolbar.ql-snow button.ql-active svg {
+    filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(175deg) !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] #wysiwyg-editor .ql-snow .ql-picker,
+html[data-theme="dark"] #wysiwyg-editor .ql-snow .ql-picker-label {
+    color: #e7edf3 !important;
+}
+
+html[data-theme="dark"] #wysiwyg-editor .ql-snow .ql-picker-options,
+html[data-theme="dark"] #wysiwyg-editor .ql-toolbar.ql-snow .ql-picker-options {
+    background-color: #1e2530 !important;
+    border: 1px solid #3a4a5c !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+html[data-theme="dark"] #wysiwyg-editor .ql-snow .ql-picker-item,
+html[data-theme="dark"] #wysiwyg-editor .ql-snow .ql-picker-options .ql-picker-item {
+    color: #e7edf3 !important;
+}
+
+html[data-theme="dark"] #wysiwyg-editor .ql-snow .ql-picker-item::before {
+    color: inherit !important;
+}
+
+html[data-theme="dark"] #wysiwyg-editor .ql-snow .ql-picker-item:hover,
+html[data-theme="dark"] #wysiwyg-editor .ql-snow .ql-picker-item.ql-selected {
+    background-color: #2a3440 !important;
+    color: #7eb8e8 !important;
+}
+
+html[data-theme="dark"] #wysiwyg-editor .ql-toolbar.ql-snow button:hover,
+html[data-theme="dark"] #wysiwyg-editor .ql-toolbar.ql-snow button.ql-active {
+    background-color: #2a3440 !important;
+}
+
+html[data-theme="dark"] #wysiwyg-editor .ql-snow .ql-picker.ql-expanded .ql-picker-label {
+    color: #e7edf3 !important;
+    border-color: #3a4a5c !important;
+}
+
+html[data-theme="dark"] #wysiwyg-editor .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+    border-color: #3a4a5c !important;
+}
+
+html[data-theme="dark"] .article-form .ql-tooltip {
+    background-color: #1e2530 !important;
+    border-color: #3a4a5c !important;
+    color: #e7edf3 !important;
+}
+
+html[data-theme="dark"] .article-form .ql-tooltip.ql-editing input[type="text"] {
+    background-color: #121820 !important;
+    border-color: #3a4a5c !important;
+    color: #e7edf3 !important;
+}
+
+.article-form .ql-tooltip a {
+    color: var(--link) !important;
+}
