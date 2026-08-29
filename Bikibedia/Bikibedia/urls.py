@@ -1,13 +1,47 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
+import Bikibedia.admin  # noqa: F401
+
+from accounts.views import (
+    UserLoginView,
+    UserLogoutView,
+    change_password_view,
+    notification_mark_read,
+    notifications_mark_all_read,
+    notifications_view,
+    presence_ping,
+    profile_view,
+    register_view,
+)
 from wiki import views
+from wiki import moderation_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('articles/', views.articles, name='articles'),
-    path('wiki/<str:article_title>', views.article, name='article'),
-    path('login/', views.login_page, name='login'),
-    path('register/', views.register_page, name='register'),
+    path('articles/new/', views.article_create, name='article_create'),
+    path('articles/upload-image/', views.upload_inline_image, name='upload_inline_image'),
+    path('articles/<slug:slug>/edit/', views.article_edit, name='article_edit'),
+    path('articles/<slug:slug>/delete/', views.article_delete, name='article_delete'),
+    path('wiki/<slug:slug>/', views.article_detail, name='article'),
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('logout/', UserLogoutView.as_view(), name='logout'),
+    path('register/', register_view, name='register'),
+    path('profile/', profile_view, name='profile'),
+    path('profile/password/', change_password_view, name='change_password'),
+    path('notifications/', notifications_view, name='notifications'),
+    path('notifications/<int:pk>/read/', notification_mark_read, name='notification_mark_read'),
+    path('notifications/read-all/', notifications_mark_all_read, name='notifications_mark_all_read'),
+    path('accounts/presence/', presence_ping, name='presence_ping'),
+    path('moderation/', moderation_views.moderation_queue, name='moderation_queue'),
+    path('moderation/article/<int:pk>/', moderation_views.moderation_review_article, name='moderation_review_article'),
+    path('moderation/revision/<int:pk>/', moderation_views.moderation_review_revision, name='moderation_review_revision'),
+    path('license/', views.license_page, name='license'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

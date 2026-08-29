@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Notifications — Bikibedia{% endblock %}
+
+{% block content %}
+<div class="notifications-header">
+    <h1 id="firstHeading">Notifications</h1>
+    {% if notifications %}
+        <form action="{% url 'notifications_mark_all_read' %}{% if bikibedia_tab_id %}?__tab={{ bikibedia_tab_id }}{% endif %}" method="post">
+            {% csrf_token %}
+            {% include "includes/tab_post_fields.html" %}
+            <button type="submit" class="btn btn-small">Mark all read</button>
+        </form>
+    {% endif %}
+</div>
+
+{% if notifications %}
+    <ul class="notification-list">
+        {% for item in notifications %}
+            <li class="notification-item{% if not item.is_read %} notification-item--unread{% endif %}">
+                <div class="notification-copy">
+                    <strong>{{ item.title }}</strong>
+                    <p>{{ item.message }}</p>
+                    <time datetime="{{ item.created_at|date:'c' }}">{{ item.created_at|date:"M j, Y, g:i A" }}</time>
+                </div>
+                {% if item.link %}
+                    <form action="{% url 'notification_mark_read' item.pk %}{% if bikibedia_tab_id %}?__tab={{ bikibedia_tab_id }}{% endif %}" method="post">
+                        {% csrf_token %}
+                        {% include "includes/tab_post_fields.html" %}
+                        <button type="submit" class="btn btn-small btn-primary">Open</button>
+                    </form>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="moderation-empty">No notifications yet.</p>
+{% endif %}
+{% endblock %}
