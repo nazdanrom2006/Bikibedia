@@ -4,7 +4,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-g^1ts^1m^7_o6ho9v^5=93%akj*t8wo*8f6papevowg=*a@vmo'
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bikibedia.vercel.app', 'bikibedia-*-daniel-herman.vercel.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bikibedia.vercel.app', 'bikibedia-*-daniel-herman.vercel.app', '*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
